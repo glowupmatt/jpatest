@@ -1,0 +1,5 @@
+com\example\jpatest\person\PersonRepository.class
+com\example\jpatest\person\PersonController.class
+com\example\jpatest\person\PersonService.class
+com\example\jpatest\JpatestApplication.class
+com\example\jpatest\person\Person.class
