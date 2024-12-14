@@ -19,7 +19,7 @@ public class ToDoListController {
     @Autowired
     private TodoListService service;
 
-    @GetMapping
+    @GetMapping("/")
     public List<ToDoList> getAllToDoList() {
         return service.findAll();
     }

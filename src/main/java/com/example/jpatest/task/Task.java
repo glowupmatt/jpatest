@@ -1,6 +1,9 @@
 package com.example.jpatest.task;
 
 import com.example.jpatest.todoList.ToDoList;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,6 +22,9 @@ public class Task {
 
     @ManyToOne
     @JoinColumn(name = "todo_list_id")
+    @JsonIdentityInfo(
+    generator = ObjectIdGenerators.PropertyGenerator.class, 
+    property = "id")
     private ToDoList toDoList;
 
     public Task() {

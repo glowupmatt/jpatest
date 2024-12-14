@@ -3,6 +3,9 @@ package com.example.jpatest.todoList;
 import java.util.List;
 
 import com.example.jpatest.task.Task;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -19,6 +22,10 @@ public class ToDoList {
     private String title;
 
     @OneToMany(mappedBy = "toDoList", cascade = CascadeType.ALL, orphanRemoval = true)
+    // @JsonManagedReference
+    @JsonIdentityInfo(
+    generator = ObjectIdGenerators.PropertyGenerator.class, 
+    property = "id")
     private List<Task> tasks;
     public ToDoList() {
     }
