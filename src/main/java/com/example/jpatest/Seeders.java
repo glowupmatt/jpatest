@@ -30,6 +30,9 @@ public class Seeders implements ApplicationRunner {
         toDoListRepository.deleteAll();
 
         // Create ToDoLists
+        if(taskRepository.count() > 0 || toDoListRepository.count() > 0) {
+            return;
+        }
         ToDoList groceries = new ToDoList("Groceries");
         ToDoList work = new ToDoList("Work");
         ToDoList home = new ToDoList("Home");
